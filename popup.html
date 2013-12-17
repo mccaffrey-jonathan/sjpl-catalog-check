@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style>
+      body {
+        min-width: 357px;
+        overflow-x: hidden;
+      }
+
+      img {
+        margin: 5px;
+        border: 2px solid black;
+        vertical-align: middle;
+        width: 75px;
+        height: 75px;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
+     -->
+    <script src="underscore.js"></script>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script src="mustache.js"></script>
+    <script src="popup.js"></script>
+
+    <script id="popup-results-template" type="text/html">
+    {{#results}}
+    <div>
+        <div>
+            <img src="{{thumbnailSrc}}"></img>
+            <a href="{{url}}" class="changeTabHref">{{title}}</a>
+        </div>
+        <div>
+            <span>{{author}}</span>
+            <span>{{desc}}</span>
+            <span>{{year}}</span>
+        </div>
+    </div>
+    {{/results}}
+    <div>
+        <a class="changeTabHref" href="{{url}}">See full results on original site</a>
+    </div
+    </script>
+  </head>
+  <body>
+  <div class="root"/>
+  </body>
+</html>
+

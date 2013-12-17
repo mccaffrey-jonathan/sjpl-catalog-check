@@ -1,0 +1,47 @@
+# SJPL Catalog Search!
+
+There are 2 catalogs!  How pleasant!
+Old
+http://catalog.sjlibrary.org/search~/a?searchtype=X&searcharg=limits+to+growth&SORT=D&searchscope=1
+
+New!
+http://discover.sjlibrary.org/iii/encore_sjpl/search/C__Slimits%20to%20growth__Orightresult__U1?lang=eng&suite=sjpl
+
+the search string is url-encoded in between the C__S and __0
+I hope those are constant...
+
+How friendly!  So it looks like there is a table with class "browseResult" for each item.
+
+There are spans with classes for type and year:
+class=itemMediaDescription
+class=itemMediaYear
+
+There may be a class itemBoomCover which may contain an image with class browseThumbnail, which is the book cover!
+
+For the title itself, there should be an a within a div with class dpBibTitle
+with id=recordDisplayLink2Component_XXX, where XXX is an index that marches up.
+
+The trimmed text of this should be an decent title.
+
+For author, check in a div with class dpBibAuthor with id authorDisplayLinkComponent_1
+
+# Amazon Product Pages!
+I don't think one can search by ISBN #
+
+Amazon product page URL, need to curl this and find a reliable book title
+http://www.amazon.com/gp/product/0521663504/ref=s9_simh_gw_p14_d1_i2?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=center-2&pf_rd_r=0ECR7BXN2SBETWYN6DEN&pf_rd_t=101&pf_rd_p=1630083502&pf_rd_i=507846
+
+Prettier product page!
+
+The 'meta' section of the head has some handy info, as well as that canonicaly
+pretty link.  Grab the meta with name title?
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+
+
+<link rel="canonical" href="http://www.amazon.com/Pearls-Functional-Algorithm-Design-Richard/dp/0521513383" />
+<link rel="alternate" media="handheld" href="http://www.amazon.com/gp/aw/d/0521513383" />
+<meta name="description" content="Pearls of Functional Algorithm Design [Richard Bird] on Amazon.com. *FREE* shipping on qualifying offers. Richard Bird takes a radically new approach to algorithm design, namely, design by calculation. These 30 short chapters each deal with a particular programming problem drawn from sources as diverse as games and puzzles" />
+<meta name="title" content="Pearls of Functional Algorithm Design: Richard Bird: 9780521513388: Amazon.com: Books" />
+
+<meta name="keywords" content="Richard Bird,Pearls of Functional Algorithm Design,Cambridge University Press,0521513383,ACAMP_book_usedlikenew_0521513383,Computer Books: General,Computer algorithms,Functional programming (Computer science),Computers - Languages / Programming,Computers,COMPUTERS / Computer Science,Computer Science,Computers / Programming Languages / General,Programming Languages - General,Functional programming,Programming - Algorithms,Computing: Professional &amp; Programming,COM051300" />
+<title>Pearls of Functional Algorithm Design: Richard Bird: 9780521513388: Amazon.com: Books</title>
