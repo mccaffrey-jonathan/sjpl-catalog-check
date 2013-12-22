@@ -1,5 +1,5 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <title>Getting Started Extension's Popup</title>
     <style>
@@ -17,35 +17,57 @@
       }
     </style>
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bootstrap.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="bootstrap-theme.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="bootstrap.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="popup.css">
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
       - [1]: http://developer.chrome.com/extensions/contentSecurityPolicy.html
      -->
+
+    <script id="popup-results-template" type="text/html">
+    <div class="top-level-popup">
+    <div class="book-title">
+        Results for <strong>{{request.bookTitle}}</strong>
+    </div>
+    <table class="table table-striped table-hover">
+    {{#results.items}}
+    <tr class="result-item">
+        <td class="result-thumbnail">
+            <a href="{{url}}" class="changeTabHref">
+                <img src="{{thumbnailSrc}}"></img>
+            </a>
+        </td>
+        <td class="result-info">
+            <span class="result-title"><a href="{{url}}" class="changeTabHref">{{title}}</a></span>
+            <div class="result-details">
+            <span class="result-author">{{author}}</span>
+            <span class="result-desc">{{desc}}</span>
+            <span class="result-year">{{year}}</span>
+            </dv>
+        </td>
+    </tr>
+    {{/results.items}}
+    </table>
+    <div class="full-result text-center">
+        <a class="changeTabHref" href="{{results.fullResultUrl}}">See full results on original site</a>
+    </div>
+    <div>
+    </script>
+
     <script src="underscore.js"></script>
     <script src="jquery-1.10.2.min.js"></script>
     <script src="mustache.js"></script>
     <script src="popup.js"></script>
-
-    <script id="popup-results-template" type="text/html">
-    {{#results}}
-    <div>
-        <div>
-            <img src="{{thumbnailSrc}}"></img>
-            <a href="{{url}}" class="changeTabHref">{{title}}</a>
-        </div>
-        <div>
-            <span>{{author}}</span>
-            <span>{{desc}}</span>
-            <span>{{year}}</span>
-        </div>
-    </div>
-    {{/results}}
-    <div>
-        <a class="changeTabHref" href="{{url}}">See full results on original site</a>
-    </div
-    </script>
   </head>
   <body>
   <div class="root"/>

@@ -7,17 +7,14 @@ function checkAmzBookPage() {
         }
     }
 
-    return null;
+    return undefined;
 }
 
 var amz = checkAmzBookPage();
-if (amz != null) {
-    // window.alert('checked amz found: ' + amz);
-    chrome.runtime.sendMessage({
-        bookTitle: amz,
-    });
-} else {
-    chrome.runtime.sendMessage({
-        err: "Sorry, we could not identify what item's page you are on!"
-    });
-}
+
+// Result
+titleResults = {
+    'bookTitle': amz,
+};
+
+titleResults;
