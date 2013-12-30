@@ -10,11 +10,9 @@ function checkAmzBookPage() {
     return undefined;
 }
 
-var amz = checkAmzBookPage();
-
 // Result
 titleResults = {
-    'bookTitle': amz,
+    'bookTitle': checkAmzBookPage(),
 };
 
 titleResults;
