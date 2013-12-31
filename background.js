@@ -27,12 +27,13 @@ function handleTitleToQuery(tabId, request) {
 }
 
 function startCheckPageForTitle(tabId, tab, scriptToRun, result_cb) {
-    // TODO, understand and hopefully fix
-    // Very weirdly, this worked with null but not tabId,
-    // tabId is more correct, since null just targets the active tab
-    // not the one that changed.  Have to figure out why.
-    // chrome.tabs.executeScript(tabId, {file: "tab-book-query.js"}, function(results) {
-    chrome.tabs.executeScript(null, {file: scriptToRun}, function(results) {
+    chrome.tabs.executeScript(tabId, {file: scriptToRun}, function(results) {
+
+        if (chrome.runtime.lastError) {
+            console.error(scriptToRun + ' failed to run: ' + chrome.runtime.lastError.message);
+        }
+
+    // chrome.tabs.executeScript(null, {file: scriptToRun}, function(results) {
         if (!results || results.length < 1) {
             return;
         }

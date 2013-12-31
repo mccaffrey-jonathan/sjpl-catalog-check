@@ -19,7 +19,8 @@
      "tabs",
      "activeTab",
      "http://www.amazon.com/",
-     "http://discover.sjlibrary.org/",
-     "http://*/" // Eww, get rid of global include
+     "https://www.amazon.com/",
+     "http://books.google.com/",
+     "http://discover.sjlibrary.org/"
   ]
 }

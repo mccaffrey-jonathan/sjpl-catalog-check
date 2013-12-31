@@ -10,8 +10,6 @@ function checkGoogleBooksPage() {
     return undefined;
 }
 
-document.body.style.backgroundColor = 'red';
-
 // Result
 titleResults = {
     'bookTitle': checkGoogleBooksPage(),
