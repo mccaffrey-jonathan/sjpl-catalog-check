@@ -5,18 +5,18 @@ function catalogInfoFromElement(index, el) {
 	'thumbnailSrc': $(el).find('img.browseThumbnail').attr('src'),
     };
 
-    authorEl = $(el).find('div.dpBibTitle a#recordDisplayLink2Component').first();
+    var titleEl = $(el).find('div.dpBibTitle a#recordDisplayLink2Component').first();
     res['author'] = $(el).find('div.dpBibAuthor a#authorDisplayLinkComponent').first().text().trim();
-    res['title'] = authorEl.text().trim();
-    res['url'] = 'http://discover.sjlibrary.org' + authorEl.attr('href');
+    res['title'] = titleEl.text().trim();
+    res['url'] = 'http://discover.sjlibrary.org' + titleEl.attr('href');
     for (i = 0; i < 15; i++) {
         if (res['title'] != "") {
             break;
         }
-        authorEl = $(el).find('div.dpBibTitle a#recordDisplayLink2Component_' + i.toString()).first();
+        var titleEl = $(el).find('div.dpBibTitle a#recordDisplayLink2Component_' + i.toString()).first();
         res['author'] = $(el).find('div.dpBibAuthor a#authorDisplayLinkComponent_' + i.toString()).first().text().trim();
-        res['title'] = authorEl.text().trim();
-        res['url'] = 'http://discover.sjlibrary.org' + authorEl.attr('href');
+        res['title'] = titleEl.text().trim();
+        res['url'] = 'http://discover.sjlibrary.org' + titleEl.attr('href');
     }
 
     return res;
@@ -25,7 +25,7 @@ function catalogInfoFromElement(index, el) {
 function querySJPLCatalogPageForList(dom)
 {
     console.log('Checking catalog page for item list');
-    return $(dom).find('table.browseResult').map(catalogInfoFromElement).get();
+    return $(dom).find('span#resultsAnyComponent').map(catalogInfoFromElement).get();
 }
 
 function querySJPLCatalog(query_string, success_cb, error_cb)
