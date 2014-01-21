@@ -3,7 +3,7 @@
 
   "name": "SJPL Catalog Checker",
   "description": "This extension checks the SJPL catalog for books from the current page",
-  "version": "1.0",
+  "version": "1.2",
   "icons": {"16": "book-icon16.png",
             "48": "book-icon48.png",
             "128": "book-icon128.png"},
