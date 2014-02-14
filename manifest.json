@@ -6,6 +6,7 @@
   "icons": {"16": "book-icon16.png",
             "48": "book-icon48.png",
             "128": "book-icon128.png"},
+// DEBUG
 //  "icons": {"16": "book-icon-red-16.png",
 //            "48": "book-icon-red-48.png",
 //            "128": "book-icon-red-128.png"},
@@ -17,6 +18,8 @@
   "page_action": {
     "default_title": "SJPL Catalog Search",
     "default_icon": "book-icon-small.png",
+// DEBUG
+//    "default_icon": "book-icon-small-red.png",
     "default_popup": "popup.html"
   },
   "permissions": [
