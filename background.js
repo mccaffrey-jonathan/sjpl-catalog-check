@@ -3,7 +3,8 @@ function catalogResultsSatisfyQuery(request, results) {
     // Spurious matches may not be a major problem...
 
     // Could we cross-check with something like ISBN #?
-    return true; 
+    // For now, check at least 1 item returned.
+    return results.items.length >= 1;
 }
 
 function handleTitleToQuery(tabId, request) {
