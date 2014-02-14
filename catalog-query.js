@@ -2,7 +2,7 @@ function catalogInfoFromElement(index, el) {
     res = {
         'desc': $(el).find('.itemMediaDescription').first().text(),
         'year': $(el).find('.itemMediaYear').first().text(),
-	'thumbnailSrc': $(el).find('img.browseThumbnail').attr('src'),
+	'thumbnailSrc': $(el).find('div.itemBookCover img').attr('src'),
     };
 
     var titleEl = $(el).find('div.dpBibTitle a#recordDisplayLink2Component').first();
@@ -25,7 +25,7 @@ function catalogInfoFromElement(index, el) {
 function querySJPLCatalogPageForList(dom)
 {
     console.log('Checking catalog page for item list');
-    return $(dom).find('span#resultsAnyComponent').map(catalogInfoFromElement).get();
+    return $(dom).find('span#resultsAnyComponent').children().map(catalogInfoFromElement).get();
 }
 
 function querySJPLCatalog(query_string, success_cb, error_cb)
